@@ -9,6 +9,11 @@ pub struct Svg<'a> {
     pub style: Style,
 }
 
+pub struct SvgTree {
+    pub tag: String,
+    pub id: Option<String>,
+}
+
 impl<'a> Svg<'a> {
     pub fn and(mut self, sibling: Svg<'a>) -> Self {
         self.siblings.push(sibling);

@@ -1,3 +1,5 @@
+use std::fmt::Display;
+
 #[derive(Default, Debug, Clone, Copy, PartialEq)]
 pub struct ViewBox {
     pub min_x: Option<f32>,
@@ -73,5 +75,18 @@ impl ViewBox {
         self.max_x = self.max_x.map(|x| x + margin);
         self.max_y = self.max_y.map(|y| y + margin);
         self
+    }
+}
+
+impl Display for ViewBox {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(
+            f,
+            "{x} {y} {w} {h}",
+            x = self.min_x(),
+            y = self.min_y(),
+            w = self.width(),
+            h = self.height()
+        )
     }
 }

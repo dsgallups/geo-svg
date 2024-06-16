@@ -52,6 +52,7 @@ mod combine;
 mod style;
 mod svg;
 mod svg_impl;
+mod svg_tree;
 mod text;
 mod to_svg;
 mod to_svg_str;
